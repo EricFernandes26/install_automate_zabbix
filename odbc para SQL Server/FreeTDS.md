@@ -1,7 +1,9 @@
 # How to install freetds in Linux ubuntu?
 
 ## Install pre-requesite packages
+ ```bash
 sudo apt-get install unixodbc unixodbc-dev freetds-dev freetds-bin tdsodbc
+ ```
 
 Point odbcinst.ini to the driver in /etc/odbcinst.ini:
 
