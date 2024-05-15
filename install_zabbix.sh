@@ -17,12 +17,18 @@ set global log_bin_trust_function_creators = 1;
 EOF
 
 # Importar schema e dados iniciais
-zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
+zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -pzabbix
 
 # Desativar a opção log_bin_trust_function_creators
 mysql -uroot << EOF
 set global log_bin_trust_function_creators = 0;
 EOF
+
+# Editar o arquivo my.cnf e adicionar a configuração de fuso horário
+echo -e "[mysqld]\ndefault-time-zone = \"-03:00\"" | tee -a /etc/mysql/my.cnf
+
+# Reiniciar o serviço MySQL
+sudo service mysql restart
 
 # Configurar senha do banco de dados para o servidor Zabbix
 sed -i 's/# DBPassword=/DBPassword=zabbix/' /etc/zabbix/zabbix_server.conf
