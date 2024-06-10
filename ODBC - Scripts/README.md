@@ -24,6 +24,9 @@ O script oferece as seguintes funcionalidades:
 4. **Instalação do ODBC para SQL Server:**
    - Esta função instala o driver ODBC para Microsoft SQL Server. No entanto, é necessário observar a verificação de compatibilidade do sistema operacional Ubuntu antes da instalação.
 
+5. **Instalação do ODBC para Oracle:**
+   - Esta função instala o driver ODBC para Oracle 21c, permitindo que aplicativos se conectem a esses bancos de dados por meio da API ODBC.
+
 ---
 
 ## Instruções de Uso
