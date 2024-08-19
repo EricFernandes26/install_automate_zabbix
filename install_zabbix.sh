@@ -17,7 +17,7 @@ set global log_bin_trust_function_creators = 1;
 EOF
 
 # Importar schema e dados iniciais
-zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
+zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -pzabbix zabbix
 
 # Desativar a opção log_bin_trust_function_creators
 mysql -uroot << EOF
